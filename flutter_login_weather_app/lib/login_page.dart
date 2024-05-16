@@ -10,18 +10,17 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   
   @override
-  Widget build(BuildContext context) {
-    
-    return Scaffold(  
-      appBar: AppBar(        
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,        
-        title: Text('NAV BAR'),
-      ),    
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,          
+  Widget build(BuildContext context) {    
+    return Scaffold(
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("assets/images/login-background.jpg"),
+            fit: BoxFit.cover,
+          ),
         ),
-      ), 
+        child: null /* add child content here */,
+      )
     );
   }  
 }
