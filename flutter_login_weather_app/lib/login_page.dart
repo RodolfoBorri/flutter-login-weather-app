@@ -12,6 +12,9 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   
   bool _isHidden = true;
+  bool _isHoverLogin = false;
+  bool _isHoverFgtPass = false;
+  bool _isHoverSignUp = false;
 
   @override
   Widget build(BuildContext context) {    
@@ -137,16 +140,21 @@ class _LoginPageState extends State<LoginPage> {
                           SizedBox(width: MediaQuery.of(context).size.width/4),
                           InkWell(
                             onTap: () => (),
-                            child: const Text(
+                            onHover: (value) => (
+                              setState(() {
+                                _isHoverFgtPass = value;
+                              })
+                            ),
+                            child: Text(
                               'Forgot password?',
                               style: TextStyle(
                                 fontSize: 10,
-                                color: Colors.black
+                                color: (_isHoverFgtPass) ? const Color.fromARGB(255, 7, 120, 212) : Colors.black
                               ),
                             ),
                           ),
                         ],
-                      ),                      
+                      ),
                       const SizedBox(height: 20),
                       Column(
                         children: [
@@ -159,10 +167,17 @@ class _LoginPageState extends State<LoginPage> {
                                   borderRadius: BorderRadius.circular(5),
                                 ),
                               ),
-                              child: const Text(
-                                            'Login',
-                                            style: TextStyle(color: Colors.black87)
-                                          ),
+                              onHover: (value) => (
+                                setState(() {
+                                  _isHoverLogin = value;
+                                })
+                              ),
+                              child: Text(
+                                      'Login',
+                                      style: TextStyle(
+                                        color: (_isHoverLogin) ? const Color.fromARGB(255, 7, 120, 212) : Colors.black
+                                      )
+                              ),
                               onPressed: () => (),
                             )
                           ),
@@ -241,10 +256,35 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                           ),
                         ],
+                      ),
+                      const SizedBox(height: 70),
+                      Column(
+                        children: [
+                          const Text(
+                            'or Sign Up using',
+                            style: TextStyle(
+                              fontSize: 12,
+                              color: Colors.black87
+                            ),
+                          ),
+                          const SizedBox(height: 15),
+                          InkWell(
+                            onTap: () => (),
+                            onHover: (value) => (
+                              setState(() {
+                                _isHoverSignUp = value;
+                              })
+                            ),
+                            child: Text(
+                                    'SIGN UP',
+                                    style: TextStyle(
+                                      fontSize: 10,
+                                      color: (_isHoverSignUp) ? const Color.fromARGB(255, 7, 120, 212) : Colors.black
+                                    ),
+                                  ),
+                          )
+                        ],
                       )
-                                               
-                      
-                      
                     ],
                   ),
                 ),
