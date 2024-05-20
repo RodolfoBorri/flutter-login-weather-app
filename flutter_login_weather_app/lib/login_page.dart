@@ -58,14 +58,15 @@ class _LoginPageState extends State<LoginPage> {
                       const SizedBox(height: 20),
                       Row(
                         children: [
-                          SizedBox(width: MediaQuery.of(context).size.width/24),
-                          const Text(
-                            'Username',
-                            style: TextStyle(
-                              fontSize: 12,
-                              color: Colors.black87
-                            ),
-                          )
+                          SizedBox(
+                            width: MediaQuery.of(context).size.width/24),
+                            const Text(
+                              'Username',
+                              style: TextStyle(
+                                fontSize: 12,
+                                color: Colors.black87
+                              ),
+                            )
                         ],
                       ),
                       const SizedBox(height: 3),
@@ -130,19 +131,120 @@ class _LoginPageState extends State<LoginPage> {
                           )
                         ],
                       ),
-                      const SizedBox(height: 30),
+                      const SizedBox(height: 5),
+                      Row(
+                        children: [
+                          SizedBox(width: MediaQuery.of(context).size.width/4),
+                          InkWell(
+                            onTap: () => (),
+                            child: const Text(
+                              'Forgot password?',
+                              style: TextStyle(
+                                fontSize: 10,
+                                color: Colors.black
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),                      
+                      const SizedBox(height: 20),
                       Column(
                         children: [
                           SizedBox(
                             width: MediaQuery.of(context).size.width/4 - 5,
-                            height: MediaQuery.of(context).size.width/50,
+                            height: MediaQuery.of(context).size.width/40,
                             child: ElevatedButton(
-                              child: const Text('Login'), 
+                              style: ElevatedButton.styleFrom(
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(5),
+                                ),
+                              ),
+                              child: const Text(
+                                            'Login',
+                                            style: TextStyle(color: Colors.black87)
+                                          ),
                               onPressed: () => (),
                             )
                           ),
                         ],
+                      ),
+                      const SizedBox(height: 40),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Expanded(
+                              child: Divider(
+                                indent: MediaQuery.of(context).size.width/15,
+                                color: Colors.black26,
+                              )
+                          ),
+                          const SizedBox(width: 10),
+                          const Text(
+                            'or',
+                            style: TextStyle(
+                              fontSize: 12,
+                              color: Colors.black87
+                            ),
+                          ),
+                          const SizedBox(width: 10),
+                          Expanded(
+                              child: Divider(
+                                endIndent: MediaQuery.of(context).size.width/15,
+                                color: Colors.black26,
+                              )
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 30),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Material(
+                            clipBehavior: Clip.antiAliasWithSaveLayer,    //this made the button go circular
+                            shape: const CircleBorder(),
+                            child: InkWell(
+                              onTap: () => (),
+                              child: Ink.image(
+                                image: const AssetImage('assets/images/google_login.jpg'),
+                                height: 40,
+                                width: 40,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),
+                          const SizedBox(width: 10),
+                          Material(
+                            clipBehavior: Clip.antiAliasWithSaveLayer,    
+                            shape: const CircleBorder(),
+                            child: InkWell(
+                              onTap: () => (),
+                              child: Ink.image(
+                                image: const AssetImage('assets/images/linkedin_icon.jpg'),
+                                height: 40,
+                                width: 40,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),
+                          const SizedBox(width: 10),
+                          Material(
+                            clipBehavior: Clip.antiAliasWithSaveLayer,    
+                            shape: const CircleBorder(),
+                            child: InkWell(
+                              onTap: () => (),
+                              child: Ink.image(
+                                image: const AssetImage('assets/images/twitter_icon.jpg'),
+                                height: 40,
+                                width: 40,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),
+                        ],
                       )
+                                               
+                      
+                      
                     ],
                   ),
                 ),
